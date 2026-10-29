@@ -2,7 +2,8 @@ PCB INSPECTOR
 Automated optical inspection (AOI) of printed circuit boards by comparison with a reference board (Golden Board)
 
 Undergraduate Final Project (TCC) – UTFPR (Federal University of Technology – Paraná, Brazil)
-Author: <your full name>
+Mechatronics Engineering
+Author: João Victor Vargas
 
 
 1. DESCRIPTION
