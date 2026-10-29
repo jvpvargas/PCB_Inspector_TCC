@@ -1,0 +1,317 @@
+{
+  "golden_image_path": "C:\\Users\\joaov\\OneDrive\\Documentos\\00. UTFPR\\00. TCC\\03. TCC 2\\01. Testes projeto\\Golden Boards Images\\ESP32.png",
+  "regions": [
+    {
+      "name": "EN",
+      "x": 105,
+      "y": 249,
+      "w": 139,
+      "h": 110,
+      "kind": "metal"
+    },
+    {
+      "name": "BOOT",
+      "x": 107,
+      "y": 763,
+      "w": 131,
+      "h": 107,
+      "kind": "metal"
+    },
+    {
+      "name": "Vin",
+      "x": 357,
+      "y": 124,
+      "w": 47,
+      "h": 45,
+      "kind": "component"
+    },
+    {
+      "name": "GND",
+      "x": 438,
+      "y": 122,
+      "w": 42,
+      "h": 43,
+      "kind": "component"
+    },
+    {
+      "name": "D13",
+      "x": 522,
+      "y": 121,
+      "w": 40,
+      "h": 42,
+      "kind": "component"
+    },
+    {
+      "name": "D12",
+      "x": 606,
+      "y": 120,
+      "w": 38,
+      "h": 40,
+      "kind": "component"
+    },
+    {
+      "name": "D14",
+      "x": 688,
+      "y": 121,
+      "w": 37,
+      "h": 42,
+      "kind": "component"
+    },
+    {
+      "name": "D27",
+      "x": 774,
+      "y": 120,
+      "w": 41,
+      "h": 41,
+      "kind": "component"
+    },
+    {
+      "name": "D26",
+      "x": 858,
+      "y": 120,
+      "w": 40,
+      "h": 41,
+      "kind": "component"
+    },
+    {
+      "name": "D25",
+      "x": 939,
+      "y": 121,
+      "w": 49,
+      "h": 43,
+      "kind": "component"
+    },
+    {
+      "name": "D33",
+      "x": 1027,
+      "y": 127,
+      "w": 43,
+      "h": 37,
+      "kind": "component"
+    },
+    {
+      "name": "D32",
+      "x": 1111,
+      "y": 125,
+      "w": 42,
+      "h": 41,
+      "kind": "component"
+    },
+    {
+      "name": "D35",
+      "x": 1193,
+      "y": 126,
+      "w": 42,
+      "h": 43,
+      "kind": "component"
+    },
+    {
+      "name": "D34",
+      "x": 1272,
+      "y": 131,
+      "w": 45,
+      "h": 41,
+      "kind": "component"
+    },
+    {
+      "name": "U1",
+      "x": 917,
+      "y": 292,
+      "w": 601,
+      "h": 546,
+      "kind": "metal"
+    },
+    {
+      "name": "C1",
+      "x": 784,
+      "y": 293,
+      "w": 24,
+      "h": 48,
+      "kind": "component"
+    },
+    {
+      "name": "C2",
+      "x": 717,
+      "y": 297,
+      "w": 24,
+      "h": 47,
+      "kind": "component"
+    },
+    {
+      "name": "LED1",
+      "x": 736,
+      "y": 405,
+      "w": 51,
+      "h": 26,
+      "kind": "component"
+    },
+    {
+      "name": "R1",
+      "x": 736,
+      "y": 454,
+      "w": 51,
+      "h": 24,
+      "kind": "component"
+    },
+    {
+      "name": "R2",
+      "x": 736,
+      "y": 505,
+      "w": 52,
+      "h": 27,
+      "kind": "component"
+    },
+    {
+      "name": "R3",
+      "x": 734,
+      "y": 556,
+      "w": 52,
+      "h": 27,
+      "kind": "component"
+    },
+    {
+      "name": "R4",
+      "x": 737,
+      "y": 610,
+      "w": 51,
+      "h": 24,
+      "kind": "component"
+    },
+    {
+      "name": "R5",
+      "x": 735,
+      "y": 658,
+      "w": 51,
+      "h": 26,
+      "kind": "component"
+    },
+    {
+      "name": "LED2",
+      "x": 738,
+      "y": 710,
+      "w": 46,
+      "h": 29,
+      "kind": "component"
+    },
+    {
+      "name": "R6",
+      "x": 780,
+      "y": 799,
+      "w": 27,
+      "h": 52,
+      "kind": "component"
+    },
+    {
+      "name": "R7",
+      "x": 713,
+      "y": 798,
+      "w": 28,
+      "h": 50,
+      "kind": "component"
+    },
+    {
+      "name": "R8",
+      "x": 604,
+      "y": 842,
+      "w": 50,
+      "h": 23,
+      "kind": "component"
+    },
+    {
+      "name": "U2",
+      "x": 583,
+      "y": 692,
+      "w": 98,
+      "h": 132,
+      "kind": "component"
+    },
+    {
+      "name": "U3",
+      "x": 340,
+      "y": 653,
+      "w": 213,
+      "h": 205,
+      "kind": "component"
+    },
+    {
+      "name": "Y4",
+      "x": 577,
+      "y": 513,
+      "w": 101,
+      "h": 125,
+      "kind": "component"
+    },
+    {
+      "name": "R9",
+      "x": 600,
+      "y": 472,
+      "w": 50,
+      "h": 25,
+      "kind": "component"
+    },
+    {
+      "name": "D1",
+      "x": 596,
+      "y": 295,
+      "w": 58,
+      "h": 104,
+      "kind": "component"
+    },
+    {
+      "name": "U4",
+      "x": 338,
+      "y": 266,
+      "w": 225,
+      "h": 275,
+      "kind": "component"
+    },
+    {
+      "name": "R10",
+      "x": 296,
+      "y": 294,
+      "w": 27,
+      "h": 51,
+      "kind": "component"
+    },
+    {
+      "name": "R11",
+      "x": 293,
+      "y": 414,
+      "w": 26,
+      "h": 47,
+      "kind": "component"
+    },
+    {
+      "name": "C3",
+      "x": 292,
+      "y": 526,
+      "w": 25,
+      "h": 51,
+      "kind": "component"
+    },
+    {
+      "name": "R12",
+      "x": 295,
+      "y": 679,
+      "w": 22,
+      "h": 48,
+      "kind": "component"
+    },
+    {
+      "name": "R13",
+      "x": 296,
+      "y": 794,
+      "w": 26,
+      "h": 49,
+      "kind": "component"
+    },
+    {
+      "name": "USB",
+      "x": 40,
+      "y": 394,
+      "w": 220,
+      "h": 315,
+      "kind": "metal"
+    }
+  ]
+}

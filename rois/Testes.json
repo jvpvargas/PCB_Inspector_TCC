@@ -1,0 +1,173 @@
+{
+  "golden_image_path": "C:\\Users\\joaov\\OneDrive\\Documentos\\00. UTFPR\\00. TCC\\03. TCC 2\\01. Testes projeto\\Golden Boards Images\\Testes.png",
+  "regions": [
+    {
+      "name": "Term+",
+      "x": 351,
+      "y": 257,
+      "w": 87,
+      "h": 91,
+      "kind": "hole"
+    },
+    {
+      "name": "R8",
+      "x": 488,
+      "y": 279,
+      "w": 37,
+      "h": 19,
+      "kind": "component"
+    },
+    {
+      "name": "LED1",
+      "x": 633,
+      "y": 267,
+      "w": 73,
+      "h": 45,
+      "kind": "component"
+    },
+    {
+      "name": "LED2",
+      "x": 849,
+      "y": 266,
+      "w": 75,
+      "h": 46,
+      "kind": "component"
+    },
+    {
+      "name": "R2",
+      "x": 725,
+      "y": 390,
+      "w": 39,
+      "h": 20,
+      "kind": "component"
+    },
+    {
+      "name": "R1",
+      "x": 854,
+      "y": 393,
+      "w": 39,
+      "h": 20,
+      "kind": "component"
+    },
+    {
+      "name": "R5",
+      "x": 1056,
+      "y": 300,
+      "w": 19,
+      "h": 38,
+      "kind": "component"
+    },
+    {
+      "name": "U2",
+      "x": 1120,
+      "y": 410,
+      "w": 112,
+      "h": 53,
+      "kind": "component"
+    },
+    {
+      "name": "B+",
+      "x": 1292,
+      "y": 398,
+      "w": 88,
+      "h": 90,
+      "kind": "hole"
+    },
+    {
+      "name": "B-",
+      "x": 1289,
+      "y": 696,
+      "w": 83,
+      "h": 92,
+      "kind": "hole"
+    },
+    {
+      "name": "U3",
+      "x": 1114,
+      "y": 616,
+      "w": 118,
+      "h": 172,
+      "kind": "component"
+    },
+    {
+      "name": "R6",
+      "x": 1039,
+      "y": 782,
+      "w": 19,
+      "h": 36,
+      "kind": "component"
+    },
+    {
+      "name": "C1",
+      "x": 963,
+      "y": 508,
+      "w": 49,
+      "h": 77,
+      "kind": "component"
+    },
+    {
+      "name": "C2",
+      "x": 1043,
+      "y": 535,
+      "w": 16,
+      "h": 36,
+      "kind": "component"
+    },
+    {
+      "name": "U1",
+      "x": 721,
+      "y": 549,
+      "w": 191,
+      "h": 137,
+      "kind": "component"
+    },
+    {
+      "name": "C3",
+      "x": 650,
+      "y": 543,
+      "w": 18,
+      "h": 37,
+      "kind": "component"
+    },
+    {
+      "name": "R3",
+      "x": 737,
+      "y": 835,
+      "w": 40,
+      "h": 19,
+      "kind": "component"
+    },
+    {
+      "name": "Term-",
+      "x": 349,
+      "y": 831,
+      "w": 92,
+      "h": 92,
+      "kind": "hole"
+    },
+    {
+      "name": "TypeC",
+      "x": 238,
+      "y": 391,
+      "w": 334,
+      "h": 415,
+      "kind": "metal"
+    },
+    {
+      "name": "Out+",
+      "x": 1294,
+      "y": 269,
+      "w": 83,
+      "h": 85,
+      "kind": "hole"
+    },
+    {
+      "name": "Out-",
+      "x": 1285,
+      "y": 837,
+      "w": 87,
+      "h": 90,
+      "kind": "hole"
+    }
+  ]
+}
