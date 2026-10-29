@@ -1,59 +1,62 @@
 PCB INSPECTOR
-Inspeção óptica automatizada (AOI) de placas de circuito impresso por comparação com uma placa de referência (Golden Board)
+Automated optical inspection (AOI) of printed circuit boards by comparison with a reference board (Golden Board)
 
-Trabalho de Conclusão de Curso – UTFPR
-Autor: <seu nome completo>
-
-
-1. DESCRIÇÃO
-
-O PCB Inspector compara a imagem de uma placa capturada por uma câmera USB com a imagem de uma placa de referência sem defeitos (Golden Board) e indica, para cada região de interesse (ROI) cadastrada, se ela está OK ou NOK. Os defeitos considerados são componente ausente e furo de terminal fechado com solda.
-
-Funcionamento resumido:
-  - Alinhamento da captura com a golden por pontos característicos (ORB + RANSAC/homografia).
-  - Verificação de posicionamento: capturas sem placa ("Placa Ausente") ou com a placa fora do quadro ("Placa Fora de Posição") são descartadas e não entram no log.
-  - Avaliação de cada ROI conforme o tipo de inspeção:
-      component - diferença de cor no espaço Lab (fração de pixels com ΔE > 36; NOK acima de 0,30);
-      hole      - furo de terminal: distância de cor a/b dentro do furo (NOK acima de 10);
-      metal     - partes metálicas reflexivas (ex.: conector USB): recuperação de bordas (NOK abaixo de 0,80).
-  - Resultado na tela (caixas verdes/vermelhas e LEDs virtuais OK/NOK) e registro automático em CSV, com as imagens bruta e anotada de cada placa.
-
-Placas usadas no desenvolvimento e na validação: módulo carregador HW-373 (TP4056, USB-C) e, como teste de generalização, ESP32 DevKit.
+Undergraduate Final Project (TCC) – UTFPR (Federal University of Technology – Paraná, Brazil)
+Author: <your full name>
 
 
-2. CONTEÚDO DO REPOSITÓRIO
+1. DESCRIPTION
 
-  pcb_inspector.py          Programa principal - versão Windows
-  pcb_inspector_mac.py      Programa principal - versão macOS (mesmo algoritmo e mesmos limiares)
-  requirements.txt          Bibliotecas Python necessárias
-  teste_camera_mac.py       Diagnóstico de câmera no macOS (lista as câmeras e salva uma foto de cada)
-  teste_1080_vs_4k.py       Ensaio de captura em 1920x1080 e 3840x2160
-  analise_1080_vs_4k.py     Análise do ensaio 1080p x 4K
-  Golden Boards Images/     Imagens de referência (Testes.png = HW-373; ESP32.png = ESP32 DevKit)
-  rois/                     Regiões de interesse de cada golden (arquivos .json com o mesmo nome da imagem)
+PCB Inspector compares the image of a board captured by a USB camera with the image of a defect-free reference board (Golden Board) and reports, for each registered region of interest (ROI), whether it is OK or NOK (not OK). The defects considered are missing components and terminal holes closed with solder.
 
-Pastas criadas durante o uso (não versionadas):
-  logs/<golden>_<data>_<hora>/   CSV do ensaio, imagem bruta (_raw.png) e anotada de cada placa
-  logs/.../descartadas/          capturas descartadas pela verificação de posicionamento
+How it works:
+  - The capture is aligned to the golden image by feature matching (ORB + RANSAC homography).
+  - Placement check: captures with no board ("Placa Ausente" - board absent) or with the board partly out of frame ("Placa Fora de Posição" - board out of position) are discarded and not logged.
+  - Each ROI is evaluated according to its inspection type:
+      component - color difference in Lab color space (fraction of pixels with ΔE > 36; NOK above 0.30);
+      hole      - terminal hole: a/b color distance inside the hole (NOK above 10);
+      metal     - reflective metal parts (e.g., USB connector): edge recall (NOK below 0.80).
+  - The result is shown on screen (green/red boxes and virtual OK/NOK LEDs) and automatically logged to a CSV file, together with the raw and annotated images of each board.
 
+Boards used for development and validation: HW-373 charger module (TP4056, USB-C) and, as a generalization test, an ESP32 DevKit.
 
-3. REQUISITOS
-
-  - Python 3.10 ou superior (desenvolvido com Python 3.14)
-  - Bibliotecas: opencv-python, numpy, Pillow (versões em requirements.txt)
-  - Tkinter (já incluído no Python do python.org; no Homebrew: brew install python-tk)
-  - Câmera USB com resolução 1920x1080 (usada no TCC em formato MJPG, ~27 fps)
-  - Iluminação constante (anel de LED) e um suporte (bandeja) que mantenha a placa no campo da câmera
+Note: the user interface is in English; some status messages and the log folder for discarded captures ("descartadas") are in Portuguese.
 
 
-4. INSTALAÇÃO
+2. REPOSITORY CONTENTS
 
-  1. Baixe o repositório: botão "Code" > "Download ZIP" no GitHub (ou: git clone <endereço do repositório>) e extraia a pasta.
-  2. No terminal, entre na pasta e instale as bibliotecas:
-     pip install -r requirements.txt        (no macOS: pip3)
+  pcb_inspector.py          Main program - Windows version
+  pcb_inspector_mac.py      Main program - macOS version (same algorithm and same thresholds)
+  requirements.txt          Required Python libraries
+  teste_camera_mac.py       Camera diagnostics for macOS (lists the cameras and saves a photo from each one)
+  teste_1080_vs_4k.py       Capture test at 1920x1080 and 3840x2160
+  analise_1080_vs_4k.py     Analysis of the 1080p vs 4K test
+  Golden Boards Images/     Reference images (Testes.png = HW-373; ESP32.png = ESP32 DevKit)
+  rois/                     Regions of interest for each golden image (.json files with the same name as the image)
+  README.txt                This file in Portuguese
+
+Folders created during use (not included in the repository):
+  logs/<golden>_<date>_<time>/   test CSV, raw image (_raw.png) and annotated image of each board
+  logs/.../descartadas/          captures discarded by the placement check
 
 
-5. EXECUÇÃO
+3. REQUIREMENTS
+
+  - Python 3.10 or later (developed with Python 3.14)
+  - Libraries: opencv-python, numpy, Pillow (versions in requirements.txt)
+  - Tkinter (included with the python.org installer; with Homebrew: brew install python-tk)
+  - USB camera with 1920x1080 resolution (used in this project in MJPG format, ~27 fps)
+  - Constant lighting (LED ring light) and a fixture (tray) that keeps the board in the camera's field of view
+
+
+4. INSTALLATION
+
+  1. Download the repository: "Code" button > "Download ZIP" on GitHub (or: git clone <repository URL>) and extract the folder.
+  2. In a terminal, go to the folder and install the libraries:
+     pip install -r requirements.txt        (on macOS: pip3)
+
+
+5. RUNNING
 
 Windows:
   python pcb_inspector.py
@@ -61,60 +64,60 @@ Windows:
 macOS:
   python3 pcb_inspector_mac.py
 
-  Se abrir a câmera errada (FaceTime, iPhone), informe o índice da câmera USB:
+  If the wrong camera opens (FaceTime, iPhone), set the index of the USB camera:
   PCB_CAMERA_INDEX=1 python3 pcb_inspector_mac.py
 
-  Para descobrir o índice: python3 teste_camera_mac.py
+  To find the index: python3 teste_camera_mac.py
 
 
-6. USO
+6. USAGE
 
-  1. "Select Golden Board": capture a placa de referência pela câmera, abra uma imagem ou carregue uma configuração salva (golden + ROIs).
-  2. "Setup ROIs": desenhe as regiões sobre a golden, dê um nome a cada uma e escolha o tipo de inspeção (component, hole ou metal). Use Zoom para regiões pequenas; as setas movem a região selecionada e Ctrl+setas (Cmd+setas no Mac) a redimensionam. As ROIs são salvas em rois/<nome da golden>.json. Use nomes únicos para as regiões.
-  3. A câmera ao vivo inicia automaticamente. Coloque a placa na bandeja e pressione Espaço (ou "Capture").
-  4. O resultado fica na tela por 2 s e a câmera volta para a próxima placa. O histórico mostra cada inspeção; um duplo clique abre a imagem anotada.
-  5. Os resultados ficam em logs/<golden>_<data>_<hora>/ (CSV com data, hora, contagem, status, número de erros e regiões NOK).
+  1. "Select Golden Board": capture the reference board with the camera, open an image file, or load a saved setup (golden + ROIs).
+  2. "Setup ROIs": draw the regions on the golden image, name each one, and choose its inspection type (component, hole or metal). Use Zoom for small regions; the arrow keys move the selected region and Ctrl+arrows (Cmd+arrows on Mac) resize it. ROIs are saved to rois/<golden name>.json. Use unique region names.
+  3. The live camera starts automatically. Place the board on the tray and press Space (or "Capture").
+  4. The result stays on screen for 2 s, then the camera resumes for the next board. The history table lists every inspection; double-click a row to open the annotated image.
+  5. Results are saved to logs/<golden>_<date>_<time>/ (CSV with date, time, part count, status, number of errors and NOK regions).
 
 
-7. CONFIGURAÇÃO
+7. CONFIGURATION
 
-Os parâmetros ficam em constantes no início de pcb_inspector.py / pcb_inspector_mac.py. Valores usados no TCC:
+Parameters are constants at the top of pcb_inspector.py / pcb_inspector_mac.py. Values used in this project:
 
-  CAMERA_INDEX                 1 no Windows; 0 no macOS (ou variável PCB_CAMERA_INDEX)
+  CAMERA_INDEX                 1 on Windows; 0 on macOS (or the PCB_CAMERA_INDEX variable)
   CAMERA_WIDTH x CAMERA_HEIGHT 1920 x 1080
-  RESULT_DISPLAY_MS            2000 (tempo de exibição do resultado, em ms)
-  ROI_DIFF_RATIO_THRESHOLD     0,30 (limiar das ROIs do tipo component)
-  HOLE_CHROMA_THRESHOLD        10   (limiar das ROIs do tipo hole)
-  METAL_EDGE_RECALL_MIN        0,80 (limiar das ROIs do tipo metal)
-  PLACEMENT_MIN_INLIERS        100  (abaixo disso: "Placa Ausente")
-  PLACEMENT_SCALE_RANGE        0,8 a 1,25 (fora disso ou ROI fora do quadro: "Placa Fora de Posição")
+  RESULT_DISPLAY_MS            2000 (result display time, in ms)
+  ROI_DIFF_RATIO_THRESHOLD     0.30 (threshold for component ROIs)
+  HOLE_CHROMA_THRESHOLD        10   (threshold for hole ROIs)
+  METAL_EDGE_RECALL_MIN        0.80 (threshold for metal ROIs)
+  PLACEMENT_MIN_INLIERS        100  (below this: board absent)
+  PLACEMENT_SCALE_RANGE        0.8 to 1.25 (outside this range, or an ROI out of frame: board out of position)
 
-Os limiares foram definidos e congelados antes da validação. Alterá-los muda o comportamento validado.
+The thresholds were set and frozen before validation. Changing them changes the validated behavior.
 
 
-8. DIFERENÇAS ENTRE AS VERSÕES WINDOWS E macOS
+8. DIFFERENCES BETWEEN THE WINDOWS AND macOS VERSIONS
 
-O núcleo de inspeção é idêntico. Mudam apenas os recursos que dependem do sistema operacional:
+The inspection core is identical. Only the operating-system-dependent parts differ:
 
   Item                          Windows                       macOS
-  Acesso à câmera               Media Foundation (CAP_MSMF)   AVFoundation (CAP_AVFOUNDATION)
-  Índice da câmera              fixo (1)                      0 ou variável PCB_CAMERA_INDEX
-  Abrir imagem do histórico     os.startfile                  comando "open"
-  Fontes                        Segoe UI / Arial              Helvetica Neue / Arial Bold do macOS
-  Atalhos na tela de ROIs       Ctrl                          Ctrl ou Cmd
+  Camera access                 Media Foundation (CAP_MSMF)   AVFoundation (CAP_AVFOUNDATION)
+  Camera index                  fixed (1)                     0 or the PCB_CAMERA_INDEX variable
+  Open image from history       os.startfile                  "open" command
+  Fonts                         Segoe UI / Arial              Helvetica Neue / macOS Arial Bold
+  ROI setup shortcuts           Ctrl                          Ctrl or Cmd
 
 
-9. OBSERVAÇÕES
+9. NOTES
 
-  - macOS: na primeira execução o sistema pede permissão de câmera para o aplicativo que executa o Python (Terminal, VS Code etc.). Se nenhuma câmera abrir, ative-o em Ajustes do Sistema > Privacidade e Segurança > Câmera, feche-o com Cmd+Q e abra novamente.
-  - Exposição da câmera: no TCC, exposição e ganho foram fixados no driver da câmera (exposição -6, ganho 32). O programa não altera esses valores. Em outro computador, fixe-os antes de inspecionar (no macOS, por exemplo, com o utilitário CameraController), pois a exposição automática altera o brilho entre capturas.
-  - Os arquivos de ROIs guardam o caminho da golden. Se o projeto for copiado para outra pasta ou outro computador, o programa procura a imagem pelo nome em "Golden Boards Images/".
-  - Windows: a variável OPENCV_VIDEOIO_MSMF_ENABLE_HW_TRANSFORMS=0 é definida pelo próprio programa e reduz a abertura da câmera de ~17 s para ~0,8 s.
+  - macOS: on the first run, the system asks for camera permission for the application that runs Python (Terminal, VS Code, etc.). If no camera opens, enable it in System Settings > Privacy & Security > Camera, quit it with Cmd+Q and open it again.
+  - Camera exposure: in this project, exposure and gain were fixed in the camera driver (exposure -6, gain 32). The program does not change these values. On another computer, lock them before inspecting (on macOS, for example, with the CameraController utility), because auto exposure changes the brightness between captures.
+  - ROI files store the path of the golden image. If the project is copied to another folder or computer, the program looks for the image by name in "Golden Boards Images/".
+  - Windows: the program sets OPENCV_VIDEOIO_MSMF_ENABLE_HW_TRANSFORMS=0 itself, which reduces camera start-up from ~17 s to ~0.8 s.
 
 
-10. RESULTADOS (resumo do TCC)
+10. RESULTS (project summary)
 
-  - Validação: 40 placas HW-373 x 5 rodadas = 200 capturas; acurácia por ROI de 99,93%; 199/200 vereditos de placa corretos.
-  - Tempo: ciclo mediano de 9 s por placa (operador + captura + processamento + exibição); processamento de ~0,46 s por captura.
-  - Portabilidade: executado no macOS com resultados corretos em 11/11 placas.
-  - Generalização: ESP32 DevKit inspecionada com o mesmo código e os mesmos limiares, apenas com nova golden e novas ROIs.
+  - Validation: 40 HW-373 boards x 5 runs = 200 captures; per-ROI accuracy of 99.93%; 199/200 correct board verdicts.
+  - Timing: median cycle of 9 s per board (operator + capture + processing + display); processing of ~0.46 s per capture.
+  - Portability: run on macOS with correct results on 11/11 boards.
+  - Generalization: ESP32 DevKit inspected with the same code and the same thresholds, only with a new golden image and new ROIs.
